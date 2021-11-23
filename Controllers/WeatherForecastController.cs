@@ -1,4 +1,4 @@
-using ApiDemo.Models;
+using ApiDemo.Models.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiDemo.Controllers
