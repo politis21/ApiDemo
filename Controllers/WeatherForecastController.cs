@@ -1,5 +1,6 @@
 using ApiDemo.Models.Data;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace ApiDemo.Controllers
 {
@@ -161,7 +162,39 @@ namespace ApiDemo.Controllers
             //return WeatherForecasts.Where(f => f.TemperatureC > temperature);
             //2h lysi
         }
-        
+
+        [HttpGet(Name = "GetMinForecast")]
+        public WeatherForecast GetMinForecast()
+        {
+            var forecastsList = WeatherForecasts;
+            int minTemperatureC = forecastsList.Min(f => f.TemperatureC);
+            int minForecastIndex = forecastsList.FindIndex(i => i.TemperatureC == minTemperatureC); 
+            return forecastsList[minForecastIndex];
+        }
+
+        [HttpGet(Name = "GetForecastsBySummary")]
+        public IEnumerable<WeatherForecast> GetForecastsBySummary(string letter)
+        {
+            var forecastsList = WeatherForecasts;
+
+            var forecastsBySummaryList = new List<WeatherForecast>();
+
+            foreach (WeatherForecast forecast in forecastsList)
+            {
+                if (forecast.Summary.Contains(letter))
+                {
+                    forecastsBySummaryList.Add(forecast);
+                }
+            }
+
+            return forecastsBySummaryList;
+            //return WeatherForecasts.Where(f => f.TemperatureC > temperature);
+            //2h lysi
+        }
+        //Μια μέθοδο get που επιστρέφει την πρόβλεψη με τη χαμηλότερη θερμοκρασία
+        //Μία μέθοδο get που επιστρέφει τις προβλέψεις που το Summary τους περιέχει το γράμμα που θα παίρνει η μέθοδος ως παράμετρο.
+        //Τα παραπάνω να γίνουν  σε ένα νέο branch με όνομα get-methods
+        //Sql Server Management Studio
     }
 
     //GET, POST, PUT, DELETE 
