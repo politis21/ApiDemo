@@ -123,6 +123,12 @@ namespace ApiDemo.Controllers
 
         }
 
+        //GET, POST, PUT, DELETE 
+        //todo:
+        //Βάλε και άλλα properties στο model WeatherForecast
+        //Βάλε και άλλες προβλέψεις στη λίστα 
+        //Να φτιάξεις μια μέθοδο GetWarmForecasts που θα επιστρέφει μόνο 
+        //τις προβλέψεις με θερμοκρασία πάνω από 20οC.
 
         [HttpGet(Name = "GetWarmForecasts")]
         public IEnumerable<WeatherForecast> GetWarm()
@@ -163,6 +169,11 @@ namespace ApiDemo.Controllers
             //2h lysi
         }
 
+        //Μια μέθοδο get που επιστρέφει την πρόβλεψη με τη χαμηλότερη θερμοκρασία
+        //Μία μέθοδο get που επιστρέφει τις προβλέψεις που το Summary τους περιέχει το γράμμα που θα παίρνει η μέθοδος ως παράμετρο.
+        //Τα παραπάνω να γίνουν  σε ένα νέο branch με όνομα get-methods
+        //Sql Server Management Studio
+
         [HttpGet(Name = "GetMinForecast")]
         public WeatherForecast GetMinForecast()
         {
@@ -188,20 +199,9 @@ namespace ApiDemo.Controllers
             }
 
             return forecastsBySummaryList;
-            //return WeatherForecasts.Where(f => f.TemperatureC > temperature);
-            //2h lysi
-        }
-        //Μια μέθοδο get που επιστρέφει την πρόβλεψη με τη χαμηλότερη θερμοκρασία
-        //Μία μέθοδο get που επιστρέφει τις προβλέψεις που το Summary τους περιέχει το γράμμα που θα παίρνει η μέθοδος ως παράμετρο.
-        //Τα παραπάνω να γίνουν  σε ένα νέο branch με όνομα get-methods
-        //Sql Server Management Studio
-    }
 
-    //GET, POST, PUT, DELETE 
-    //todo:
-    //Βάλε και άλλα properties στο model WeatherForecast
-    //Βάλε και άλλες προβλέψεις στη λίστα 
-    //Να φτιάξεις μια μέθοδο GetWarmForecasts που θα επιστρέφει μόνο 
-    //τις προβλέψεις με θερμοκρασία πάνω από 20οC.
+        }
+        
+    }
 
 }
