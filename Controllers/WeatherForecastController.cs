@@ -69,6 +69,7 @@ namespace ApiDemo.Controllers
         [HttpGet(Name = "GetWeatherForecasts")]//Annotation που δηλώνει τι ειδους κλήση δέχεται η συγκεκριμένη μέθοδος!
         public IEnumerable<WeatherForecast> Get() //IEnumerable: Κληρονομούν λειτουργικότητές του οι Λίστες και οι Πίνακες. 
         {
+
             var forecastsList = new List<WeatherForecast>();
 
             var firstForecast = new WeatherForecast()
@@ -192,7 +193,7 @@ namespace ApiDemo.Controllers
 
             foreach (WeatherForecast forecast in forecastsList)
             {
-                if (forecast.Summary.Contains(letter))
+                if (forecast.Summary != null && forecast.Summary.Contains(letter))
                 {
                     forecastsBySummaryList.Add(forecast);
                 }
@@ -205,3 +206,5 @@ namespace ApiDemo.Controllers
     }
 
 }
+//Value types / reference types c#  (int->value string->reference)
+//HTPP methods get put post delete

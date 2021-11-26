@@ -13,5 +13,6 @@ namespace ApiDemo.Models.Data
         public double Moisture { get; set; }
 
         public string? Nebulosity { get; set; }
+       
     }
 }

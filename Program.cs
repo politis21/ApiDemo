@@ -14,6 +14,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+//Add Repositories or services here
+builder.Services.AddTransient<BooksRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
