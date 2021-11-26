@@ -29,5 +29,14 @@ namespace ApiDemo.Data
             return _context.Books.Find(id);
         }
 
+        public void DeleteBookById(int id)
+        {
+            var book = _context.Books.Find(id);
+            if (book != null)
+            {
+                _context.Books.Remove(book);
+                _context.SaveChanges();
+            }
+        }
     }
 }

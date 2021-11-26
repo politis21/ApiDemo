@@ -36,5 +36,12 @@ namespace ApiDemo.Controllers
             var book = _repository.GetBookById(id);
             return Ok(book);
         }
+
+        [HttpDelete("delete-book-by-id/{id}")]
+        public IActionResult DeleteBookById(int id)
+        {
+            _repository.DeleteBookById(id);
+            return Ok();
+        }
     }
 }
