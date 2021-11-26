@@ -7,11 +7,11 @@ namespace ApiDemo.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class MoviesControler: ControllerBase
+    public class MoviesController: ControllerBase
     {
         private MoviesRepository _repository;
 
-        public MoviesControler(MoviesRepository repository)
+        public MoviesController(MoviesRepository repository)
         {
             //Dependency Injection
             _repository = repository;
