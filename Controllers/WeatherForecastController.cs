@@ -207,4 +207,9 @@ namespace ApiDemo.Controllers
 
 }
 //Value types / reference types c#  (int->value string->reference)
-//HTPP methods get put post delete
+//HTTP methods get put post delete
+//Στο books προσθεσε νεα διαδικασια για τη διαγραφή ενός συγκεκριμένου βιβλίου με 
+//βάση το id του (βλ και google Κλπ).
+//Φτιάχνεις νέα οντότητα movies με το αντίστοιχο model
+//Προσπαθείς να την φτάσεις στο επίπεδο που βρίσκεται τώρα το Books
+
