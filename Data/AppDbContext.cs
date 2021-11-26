@@ -1,4 +1,5 @@
-﻿using ApiDemo.Models.Data;
+﻿using ApiDemo.Data.Models;
+using ApiDemo.Models.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiDemo.Data
@@ -11,5 +12,7 @@ namespace ApiDemo.Data
         }
 
         public DbSet<Book> Books {get; set;}
+        public DbSet<Movie> Movies { get; set; }
+
     }
 }

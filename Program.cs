@@ -1,4 +1,5 @@
 using ApiDemo.Data;
+using ApiDemo.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 //Add Repositories or services here
 builder.Services.AddTransient<BooksRepository>();
+builder.Services.AddTransient<MoviesRepository>();
 
 var app = builder.Build();
 
