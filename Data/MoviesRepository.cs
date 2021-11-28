@@ -36,5 +36,11 @@
                 _context.SaveChanges();
             }
         }
+
+        public List<Movie> GetMoviesSortedByName ()
+        {
+            var sortedByName = _context.Movies.OrderBy(x => x.Title).ToList();
+            return sortedByName;
+        }
     }
 }

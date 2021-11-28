@@ -38,6 +38,13 @@ namespace ApiDemo.Controllers
             return Ok(movie);
         }
 
+        [HttpGet(Name = "get-movie-sorted-by-name")]
+        public IActionResult GetMoviesSortedByName()
+        {
+            var sortedByName = _repository.GetMoviesSortedByName();
+            return Ok(sortedByName);
+        }
+
         [HttpDelete("delete-movie-by-id/{id}")]
         public IActionResult DeleteMovieById(int id)
         {
