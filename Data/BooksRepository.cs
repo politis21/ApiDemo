@@ -29,6 +29,25 @@ namespace ApiDemo.Data
             return _context.Books.Find(id);
         }
 
+        public Book UpdateBookById(int id, Book book)
+        {
+            var entity = _context.Books.Find(id);
+            if (entity is not null)
+            {
+                entity.Title = book.Title;
+                entity.Description = book.Description;
+                entity.Author = book.Author;
+                entity.IsRead = book.IsRead;
+                entity.Genre = book.Genre;
+                entity.DateRead = book.DateRead;
+                entity.DateAdded = book.DateAdded;
+                entity.CoverUrl = book.CoverUrl;
+                _context.SaveChanges();
+            }
+        
+            return entity;
+        }
+
         public void DeleteBookById(int id)
         {
             var book = _context.Books.Find(id);

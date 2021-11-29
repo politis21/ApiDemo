@@ -37,6 +37,17 @@ namespace ApiDemo.Controllers
             return Ok(book);
         }
 
+        [HttpPut(Name = "update-book-by-id/{id}")]
+        public IActionResult UpdateBookById(int id, Book book)
+        {
+            //var entity = _repository.GetBookById(id);
+            //if (entity is null) return NotFound("...was not found in db");
+            //var updatedBook...
+
+            var updatedBook = _repository.UpdateBookById(id, book);
+            return Ok(updatedBook);
+        }
+
         [HttpDelete("delete-book-by-id/{id}")]
         public IActionResult DeleteBookById(int id)
         {

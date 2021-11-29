@@ -11,8 +11,21 @@ namespace ApiDemo.Data
 
         }
 
-        public DbSet<Book> Books {get; set;}
+        public DbSet<Book> Books { get; set; }
         public DbSet<Movie> Movies { get; set; }
 
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Movie>()
+                .Property(b => b.Title)
+                .IsRequired();
+
+            modelBuilder.Entity<Movie>()
+                .Property(b => b.MovieGenre)
+                .HasConversion<int>()
+                .IsRequired();
+        }
     }
 }
