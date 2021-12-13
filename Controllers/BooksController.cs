@@ -16,7 +16,7 @@ namespace ApiDemo.Controllers
             _repository = repository;
         }
 
-        [HttpPost(Name = "get-all-books")]
+        [HttpGet(Name = "get-all-books")]
         public IActionResult GetAllBooks()
         {
             var books = _repository.GetBooks();

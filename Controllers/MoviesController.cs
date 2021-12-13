@@ -17,7 +17,7 @@ namespace ApiDemo.Controllers
             _repository = repository;
         }
 
-        [HttpPost(Name = "get-all-movies")]
+        [HttpGet(Name = "get-all-movies")]
         public IActionResult GetAllMovies()
         {
             var movies = _repository.GetMovies();
