@@ -28,7 +28,7 @@ namespace ApiDemo.Controllers
             return Ok(response);
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
