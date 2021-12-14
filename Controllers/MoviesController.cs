@@ -1,4 +1,5 @@
 ﻿using ApiDemo.Data;
+using ApiDemo.Data.Dto;
 using ApiDemo.Data.Models;
 using ApiDemo.Models.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,7 @@ namespace ApiDemo.Controllers
         }
 
         [HttpPost(Name = "add-movie")]
-        public IActionResult AddMovie([FromBody] Movie movie)
+        public IActionResult AddMovie([FromBody] MovieDto movie)
         {
             _repository.AddMovie(movie);
             return Ok();

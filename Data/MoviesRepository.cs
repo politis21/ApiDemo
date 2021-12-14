@@ -1,4 +1,6 @@
-﻿namespace ApiDemo.Data.Models
+﻿using ApiDemo.Data.Dto;
+
+namespace ApiDemo.Data.Models
 {
     public class MoviesRepository
     {
@@ -10,8 +12,21 @@
             _context = context;
         }
 
-        public void AddMovie(Movie movie)
+        public void AddMovie(MovieDto movieDto)
         {
+            var movie = new Movie()
+            {
+                Title = movieDto.Title,
+                Description = movieDto.Description,
+                DateRealesed = movieDto.DateRealesed,
+                CoverUrl = movieDto.CoverUrl,
+                IsRealesed = !movieDto.IsRealesed,
+                Rate = movieDto.Rate,
+                DateAdded = movieDto.DateAdded,
+                MovieGenre = movieDto.MovieGenre,
+                DirectorId = movieDto.DirectorId
+            };
+
             _context.Movies.Add(movie);
             _context.SaveChanges();
         }

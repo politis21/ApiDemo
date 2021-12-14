@@ -13,7 +13,7 @@ namespace ApiDemo.Data
         //Code First
         public DbSet<Book> Books { get; set; }
         public DbSet<Movie> Movies { get; set; }
-
+        public DbSet<Director> Directors { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,6 +26,10 @@ namespace ApiDemo.Data
                 .Property(b => b.MovieGenre)
                 .HasConversion<int>()
                 .IsRequired();
+
+
+            modelBuilder.Entity<Director>()
+                .HasMany<Movie>(g => g.Movies);              
         }
     }
 }
