@@ -31,7 +31,7 @@ namespace ApiDemo.Data.Models
             _context.SaveChanges();
         }
 
-        public List<Movie> GetMovies()
+        public List<Movie> GetAllMovies()
         {
             var movie = _context.Movies.ToList();
             return movie;
@@ -56,6 +56,26 @@ namespace ApiDemo.Data.Models
         {
             var sortedByName = _context.Movies.OrderBy(x => x.Title).ToList();
             return sortedByName;
+        }
+
+        public Movie UpdateMovieById(int id, Movie movie)
+        {
+            var entity = _context.Movies.Find(id);
+            if (entity != null)
+            {
+                entity.Title = movie.Title;
+                entity.Description = movie.Description;
+                entity.IsRealesed = movie.IsRealesed;
+                entity.DateRealesed = movie.DateRealesed;
+                entity.Rate = movie.Rate;
+                entity.CoverUrl = movie.CoverUrl;
+                entity.DateAdded = movie.DateAdded;
+                entity.MovieGenre = movie.MovieGenre;
+                entity.DirectorId = movie.DirectorId;
+                //entity.Director = movie.Director;
+                _context.SaveChanges();
+            }
+            return entity;
         }
     }
 }

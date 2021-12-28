@@ -21,7 +21,4 @@ namespace ApiDemo.Data.Models
         public Director? Director { get; set; }
 
     }
-
-
-
 }

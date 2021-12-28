@@ -1,4 +1,5 @@
-﻿using ApiDemo.Models.Data;
+﻿using ApiDemo.Data.Dto;
+using ApiDemo.Models.Data;
 
 namespace ApiDemo.Data
 {
@@ -12,8 +13,21 @@ namespace ApiDemo.Data
             _context = context;
         }
 
-        public void AddBook(Book book)
+        public void AddBook(BookDto bookDto)
         {
+            var book = new Book()
+            {
+                Id = bookDto.Id,
+                Title = bookDto.Title,
+                Description = bookDto.Description,
+                IsRead = bookDto.IsRead,
+                DateRead = bookDto.DateRead,
+                Rate = bookDto.Rate,
+                Genre = bookDto.Genre,
+                Author = bookDto.Author,
+                CoverUrl = bookDto.CoverUrl,
+                DateAdded = bookDto.DateAdded
+            };
             _context.Books.Add(book);
             _context.SaveChanges();
         }

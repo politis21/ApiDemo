@@ -21,7 +21,7 @@ namespace ApiDemo.Controllers
         [HttpGet(Name = "get-all-movies")]
         public IActionResult GetAllMovies()
         {
-            var movies = _repository.GetMovies();
+            var movies = _repository.GetAllMovies();
             return Ok(movies);
         }
 
@@ -51,6 +51,13 @@ namespace ApiDemo.Controllers
         {
             _repository.DeleteMovieById(id);
             return Ok();
+        }
+
+        [HttpPut(Name = "update-movie-by-id/{id}")]
+        public IActionResult UpdateMovieById(int id, Movie movie)
+        {
+            var updatedMovie = _repository.UpdateMovieById(id, movie);
+            return Ok(updatedMovie);
         }
     }
 }

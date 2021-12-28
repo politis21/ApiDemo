@@ -1,4 +1,5 @@
 ﻿using ApiDemo.Data;
+using ApiDemo.Data.Dto;
 using ApiDemo.Models.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,9 +25,9 @@ namespace ApiDemo.Controllers
         }
 
         [HttpPost(Name = "add-book")]
-        public IActionResult AddBook([FromBody] Book book)
+        public IActionResult AddBook([FromBody] BookDto bookDto)
         {
-            _repository.AddBook(book);
+            _repository.AddBook(bookDto);
             return Ok();
         }
 
