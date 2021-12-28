@@ -32,6 +32,11 @@ namespace ApiDemo.Data
             return director;
         }
 
+        public Director GetDirectorById(int id)
+        {
+            return _context.Directors.Find(id);
+        }
+
         public void DeleteDirectorById(int id)
         {
             var director = _context.Directors.Find(id);

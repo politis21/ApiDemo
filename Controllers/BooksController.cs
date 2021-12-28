@@ -25,10 +25,13 @@ namespace ApiDemo.Controllers
         }
 
         [HttpPost(Name = "add-book")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public IActionResult AddBook([FromBody] BookDto bookDto)
         {
             _repository.AddBook(bookDto);
-            return Ok();
+            return CreatedAtAction(nameof(AddBook), new { id = bookDto.Id }, bookDto);
+
+            //return Ok();
         }
 
         [HttpGet(Name = "get-book-by-id/{id}")]

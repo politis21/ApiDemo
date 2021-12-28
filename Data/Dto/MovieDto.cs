@@ -11,7 +11,6 @@ namespace ApiDemo.Data.Dto
         public bool IsRealesed { get; set; }
         public DateTime? DateRealesed { get; set; }
         public int? Rate { get; set; }
-        public string? Protagonist { get; set; }
         public string? CoverUrl { get; set; }
         public DateTime DateAdded { get; set; }
         public MovieGenreEnum MovieGenre { get; set; }

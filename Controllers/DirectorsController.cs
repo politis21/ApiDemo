@@ -28,6 +28,13 @@ namespace ApiDemo.Controllers
             return Ok(director);
         }
 
+        [HttpGet(Name = "get-director-by-id/{id}")]
+        public IActionResult GetDirectorById(int id)
+        {
+            var director = _repository.GetDirectorById(id);
+            return Ok(director);
+        }
+
         [HttpDelete("delete-director-by-id/{id}")]
         public IActionResult DeleteDirectorById(int id)
         {

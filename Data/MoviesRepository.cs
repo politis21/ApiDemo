@@ -58,9 +58,10 @@ namespace ApiDemo.Data.Models
             return sortedByName;
         }
 
-        public Movie UpdateMovieById(int id, Movie movie)
+        public Movie UpdateMovieById(int id, MovieDto movie)
         {
             var entity = _context.Movies.Find(id);
+
             if (entity != null)
             {
                 entity.Title = movie.Title;
@@ -72,8 +73,7 @@ namespace ApiDemo.Data.Models
                 entity.DateAdded = movie.DateAdded;
                 entity.MovieGenre = movie.MovieGenre;
                 entity.DirectorId = movie.DirectorId;
-                //entity.Director = movie.Director;
-                _context.SaveChanges();
+               _context.SaveChanges();
             }
             return entity;
         }
