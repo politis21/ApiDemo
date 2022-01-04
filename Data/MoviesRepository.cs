@@ -1,4 +1,5 @@
 ﻿using ApiDemo.Data.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiDemo.Data.Models
 {
@@ -76,6 +77,18 @@ namespace ApiDemo.Data.Models
                 _context.SaveChanges();
             }
             return entity;
+        }
+
+        public async Task<IEnumerable<Movie>> SearchMovie(string title)
+        {
+            IQueryable<Movie> query = _context.Movies;
+
+            if (!string.IsNullOrEmpty(title))
+            {
+                query = query.Where(e => e.Title.Contains(title));
+            }
+
+            return await query.ToListAsync();
         }
     }
 }
