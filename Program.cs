@@ -53,6 +53,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddTransient<BooksRepository>();
 builder.Services.AddTransient<MoviesRepository>();
 builder.Services.AddTransient<DirectorsRepository>();
+builder.Services.AddTransient<AuthorsRepository>();
 
 //Authentication
 // configure strongly typed settings object

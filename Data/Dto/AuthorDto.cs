@@ -1,15 +1,11 @@
-﻿using ApiDemo.Models.Data;
-
-namespace ApiDemo.Data.Models
+﻿namespace ApiDemo.Data.Dto
 {
-    public class Author
+    public class AuthorDto
     {
         public int Id { get; set; }
         public string? Name { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string? Nationality { get; set; }
         public bool HasWonNobel { get; set; }
-
-        public IEnumerable<Book> Books { get; set; }
     }
 }

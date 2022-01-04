@@ -14,7 +14,7 @@ namespace ApiDemo.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Director> Directors { get; set; }
-
+        public DbSet<Author> Authors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,7 +29,10 @@ namespace ApiDemo.Data
 
 
             modelBuilder.Entity<Director>()
-                .HasMany<Movie>(g => g.Movies);              
+                .HasMany<Movie>(g => g.Movies);
+
+            modelBuilder.Entity<Author>()
+                .HasMany<Book>(g => g.Books);
         }
     }
 }

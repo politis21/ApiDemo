@@ -1,4 +1,6 @@
-﻿namespace ApiDemo.Models.Data
+﻿using ApiDemo.Data.Models;
+
+namespace ApiDemo.Models.Data
 {
     public class Book
     {
@@ -12,5 +14,8 @@
         public string? Author { get; set; }
         public string? CoverUrl { get; set; }
         public DateTime DateAdded { get; set; }
+
+        public int AuthorId { get; set; }
+        public Author? Scripter { get; set; }
     }
 }
