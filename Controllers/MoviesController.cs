@@ -60,7 +60,7 @@ namespace ApiDemo.Controllers
             return Ok(updatedMovie);
         }
 
-        [HttpGet("{search}")]
+        [HttpGet("search/{title}")]
         public async Task<ActionResult<IEnumerable<Movie>>> SearchMovie(string title)
         {
             try
