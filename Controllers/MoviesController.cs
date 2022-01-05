@@ -59,5 +59,26 @@ namespace ApiDemo.Controllers
             var updatedMovie = _repository.UpdateMovieById(id, movie);
             return Ok(updatedMovie);
         }
+
+        [HttpGet("search/{title}")]
+        public async Task<ActionResult<IEnumerable<Movie>>> SearchMovie(string title)
+        {
+            try
+            {
+                var result = await _repository.SearchMovie(title);
+
+                if (result.Any())
+                {
+                    return Ok(result);
+                }
+
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data from the database");
+            }
+        }
     }
 }
