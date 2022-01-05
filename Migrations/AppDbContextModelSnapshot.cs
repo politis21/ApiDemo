@@ -37,6 +37,7 @@ namespace ApiDemo.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nationality")
@@ -123,9 +124,6 @@ namespace ApiDemo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Author")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
@@ -173,13 +171,13 @@ namespace ApiDemo.Migrations
 
             modelBuilder.Entity("ApiDemo.Models.Data.Book", b =>
                 {
-                    b.HasOne("ApiDemo.Data.Models.Author", "Scripter")
+                    b.HasOne("ApiDemo.Data.Models.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Scripter");
+                    b.Navigation("Author");
                 });
 
             modelBuilder.Entity("ApiDemo.Data.Models.Author", b =>

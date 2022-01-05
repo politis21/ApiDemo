@@ -8,8 +8,8 @@ namespace ApiDemo.Controllers
     [Route("api/[controller]/[action]")]
     public class AuthorsController : ControllerBase
     {
-        private AuthorsController _repository;
-        public AuthorsController(AuthorsController repository)
+        private AuthorsRepository _repository;
+        public AuthorsController(AuthorsRepository repository)
         {
             _repository = repository;
         }

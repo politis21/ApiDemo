@@ -16,7 +16,6 @@ namespace ApiDemo.Data
         {
             var author = new Author()
             {
-                Id = authorDto.Id,
                 Name = authorDto.Name,
                 DateOfBirth = authorDto.DateOfBirth,
                 Nationality = authorDto.Nationality,

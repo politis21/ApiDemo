@@ -32,7 +32,8 @@ namespace ApiDemo.Data
                 .HasMany<Movie>(g => g.Movies);
 
             modelBuilder.Entity<Author>()
-                .HasMany<Book>(g => g.Books);
+                .Property(b => b.Name)
+                .IsRequired();
         }
     }
 }

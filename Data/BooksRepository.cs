@@ -17,16 +17,15 @@ namespace ApiDemo.Data
         {
             var book = new Book()
             {
-                Id = bookDto.Id,
                 Title = bookDto.Title,
                 Description = bookDto.Description,
                 IsRead = bookDto.IsRead,
                 DateRead = bookDto.DateRead,
                 Rate = bookDto.Rate,
                 Genre = bookDto.Genre,
-                Author = bookDto.Author,
                 CoverUrl = bookDto.CoverUrl,
-                DateAdded = bookDto.DateAdded
+                DateAdded = bookDto.DateAdded,
+                AuthorId = bookDto.AuthorId
             };
             _context.Books.Add(book);
             _context.SaveChanges();
@@ -50,7 +49,6 @@ namespace ApiDemo.Data
             {
                 entity.Title = book.Title;
                 entity.Description = book.Description;
-                entity.Author = book.Author;
                 entity.IsRead = book.IsRead;
                 entity.Genre = book.Genre;
                 entity.DateRead = book.DateRead;
