@@ -13,6 +13,12 @@ namespace ApiDemo.Data.Models
             _context = context;
         }
 
+        public List<Movie> GetAllMovies()
+        {
+            var movie = _context.Movies.ToList();
+            return movie;
+        }
+
         public void AddMovie(MovieDto movieDto)
         {
             var movie = new Movie()
@@ -32,25 +38,9 @@ namespace ApiDemo.Data.Models
             _context.SaveChanges();
         }
 
-        public List<Movie> GetAllMovies()
-        {
-            var movie = _context.Movies.ToList();
-            return movie;
-        }
-
         public Movie GetMovieById(int id)
         {
             return _context.Movies.Find(id);
-        }
-
-        public void DeleteMovieById(int id)
-        {
-            var movie = _context.Movies.Find(id);
-            if (movie != null)
-            {
-                _context.Movies.Remove(movie);
-                _context.SaveChanges();
-            }
         }
 
         public List<Movie> GetMoviesSortedByName ()
@@ -58,6 +48,7 @@ namespace ApiDemo.Data.Models
             var sortedByName = _context.Movies.OrderBy(x => x.Title).ToList();
             return sortedByName;
         }
+
 
         public Movie UpdateMovieById(int id, MovieDto movie)
         {
@@ -79,6 +70,16 @@ namespace ApiDemo.Data.Models
             return entity;
         }
 
+        public void DeleteMovieById(int id)
+        {
+            var movie = _context.Movies.Find(id);
+            if (movie != null)
+            {
+                _context.Movies.Remove(movie);
+                _context.SaveChanges();
+            }
+        }
+        
         public async Task<IEnumerable<Movie>> SearchMovie(string title)
         {
             IQueryable<Movie> query = _context.Movies;

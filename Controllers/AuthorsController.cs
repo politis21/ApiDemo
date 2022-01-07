@@ -36,6 +36,13 @@ namespace ApiDemo.Controllers
             return Ok(author);
         }
 
+        [HttpPut(Name = "update-author-by-id/{id}")]
+        public IActionResult UpdateAuthorById(int id, AuthorDto author)
+        {
+            var updatedAuthor = _repository.UpdateAuthorById(id, author);
+            return Ok(updatedAuthor);
+        }
+
         [HttpDelete("delete-author-by-id/{id}")]
         public IActionResult DeleteAuthorById(int id)
         {

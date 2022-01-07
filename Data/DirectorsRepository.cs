@@ -38,6 +38,21 @@ namespace ApiDemo.Data
             return _context.Directors.Find(id);
         }
 
+        public Director UpdateDirectorById(int id, DirectorDto director)
+        {
+            var entity = _context.Directors.Find(id);
+
+            if (entity != null)
+            {
+                entity.Name = director.Name;
+                entity.DateOfBirth = director.DateOfBirth;
+                entity.Nationality = director.Nationality;
+                entity.HasWonOscar = director.HasWonOscar;
+                _context.SaveChanges();
+            }
+            return entity;
+        }
+
         public void DeleteDirectorById(int id)
         {
             var director = _context.Directors.Find(id);

@@ -43,7 +43,7 @@ namespace ApiDemo.Data
             return _context.Books.Find(id);
         }
 
-        public Book UpdateBookById(int id, Book book)
+        public Book UpdateBookById(int id, BookDto book)
         {
             var entity = _context.Books.Find(id);
             if (entity is not null)

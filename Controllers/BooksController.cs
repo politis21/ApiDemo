@@ -42,7 +42,7 @@ namespace ApiDemo.Controllers
         }
 
         [HttpPut(Name = "update-book-by-id/{id}")]
-        public IActionResult UpdateBookById(int id, Book book)
+        public IActionResult UpdateBookById(int id, BookDto book)
         {
             //var entity = _repository.GetBookById(id);
             //if (entity is null) return NotFound("...was not found in db");

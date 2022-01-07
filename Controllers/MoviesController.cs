@@ -46,18 +46,18 @@ namespace ApiDemo.Controllers
             return Ok(sortedByName);
         }
 
-        [HttpDelete("delete-movie-by-id/{id}")]
-        public IActionResult DeleteMovieById(int id)
-        {
-            _repository.DeleteMovieById(id);
-            return Ok();
-        }
-
         [HttpPut(Name = "update-movie-by-id/{id}")]
         public IActionResult UpdateMovieById(int id, MovieDto movie)
         {
             var updatedMovie = _repository.UpdateMovieById(id, movie);
             return Ok(updatedMovie);
+        }
+
+        [HttpDelete("delete-movie-by-id/{id}")]
+        public IActionResult DeleteMovieById(int id)
+        {
+            _repository.DeleteMovieById(id);
+            return Ok();
         }
 
         [HttpGet("search/{title}")]

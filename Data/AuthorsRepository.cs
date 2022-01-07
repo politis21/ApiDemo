@@ -37,6 +37,21 @@ namespace ApiDemo.Data
             return _context.Authors.Find(id);
         }
 
+        public Author UpdateAuthorById(int id, AuthorDto author)
+        {
+            var entity = _context.Authors.Find(id);
+
+            if (entity != null)
+            {
+                entity.Name = author.Name;
+                entity.DateOfBirth = author.DateOfBirth;
+                entity.Nationality = author.Nationality;
+                entity.HasWonNobel = author.HasWonNobel;
+                _context.SaveChanges();
+            }
+            return entity;
+        }
+
         public void DeleteAuthorById(int id)
         {
             var author = _context.Authors.Find(id);

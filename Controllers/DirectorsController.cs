@@ -36,6 +36,13 @@ namespace ApiDemo.Controllers
             return Ok(director);
         }
 
+        [HttpPut(Name = "update-director-by-id/{id}")]
+        public IActionResult UpdateDirectorById(int id, DirectorDto director)
+        {
+            var updatedDirector = _repository.UpdateDirectorById(id, director);
+            return Ok(updatedDirector);
+        }
+
         [HttpDelete("delete-director-by-id/{id}")]
         public IActionResult DeleteDirectorById(int id)
         {
