@@ -1,5 +1,6 @@
 ﻿using ApiDemo.Data.Dto;
 using ApiDemo.Models.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiDemo.Data
 {
@@ -68,6 +69,18 @@ namespace ApiDemo.Data
                 _context.Books.Remove(book);
                 _context.SaveChanges();
             }
+        }
+
+        public async Task<IEnumerable<Book>> SearchBook(string title)
+        {
+            IQueryable<Book> query = _context.Books;
+
+            if (!string.IsNullOrEmpty(title))
+            {
+                query = query.Where(e => e.Title.Contains(title));
+            }
+
+            return await query.ToListAsync();
         }
     }
 }

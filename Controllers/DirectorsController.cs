@@ -1,5 +1,6 @@
 ﻿using ApiDemo.Data;
 using ApiDemo.Data.Dto;
+using ApiDemo.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiDemo.Controllers
@@ -40,6 +41,27 @@ namespace ApiDemo.Controllers
         {
             _repository.DeleteDirectorById(id);
             return Ok();
+        }
+
+        [HttpGet("search/{name}")]
+        public async Task<ActionResult<IEnumerable<Director>>> SearchDirector(string name)
+        {
+            try
+            {
+                var result = await _repository.SearchDirector(name);
+
+                if (result.Any())
+                {
+                    return Ok(result);
+                }
+
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data from the database");
+            }
         }
     }
 }

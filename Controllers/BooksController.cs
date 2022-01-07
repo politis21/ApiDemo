@@ -58,5 +58,26 @@ namespace ApiDemo.Controllers
             _repository.DeleteBookById(id);
             return Ok();
         }
+
+        [HttpGet("search/{title}")]
+        public async Task<ActionResult<IEnumerable<Book>>> SearchBook(string title)
+        {
+            try
+            {
+                var result = await _repository.SearchBook(title);
+
+                if (result.Any())
+                {
+                    return Ok(result);
+                }
+
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data from the database");
+            }
+        }
     }
 }
